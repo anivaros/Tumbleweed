@@ -30,11 +30,11 @@ public protocol Renderer {
 /// response          |                                                                               #|   0.2ms
 ///                                                                                              total   465.5ms
 @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
-public struct ConsoleRenderer: Renderer {
+@objc public class ConsoleRenderer: NSObject {
     public var printer: (String) -> Void = { NSLog($0) }
     let columns = (left: 18, middle: 82, right: 8)
 
-    public init() {
+    public override init() {
 
     }
 

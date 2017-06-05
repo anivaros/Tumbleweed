@@ -10,7 +10,7 @@ import Foundation
 
 /// An object that is capable of collection metrics based on a given set of URLSessionTaskMetrics
 @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
-public struct SessionMetrics {
+@objc public class SessionMetrics: NSObject {
     public let task: URLSessionTask
     public let metrics: [Metric]
     public let redirectCount: Int
