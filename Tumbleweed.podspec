@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/nrkno/Tumbleweed"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Johan Sørensen" => "johan.sorensen@nrk.no" }
-  s.ios.deployment_target = "10.0"
+  s.ios.deployment_target = "9.0"
   s.osx.deployment_target = "10.12"
   #s.watchos.deployment_target = "3.0"
   s.tvos.deployment_target = "10.0"
