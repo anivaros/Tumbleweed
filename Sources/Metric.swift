@@ -95,7 +95,8 @@ public struct Metric {
         if let request = durations.find(type: .request),
            let response = durations.find(type: .response),
            let index = durations.index(of: response),
-           request.interval.duration > 0 {
+           request.interval.duration > 0,
+           request.interval.end.timeIntervalSinceReferenceDate < response.interval.start.timeIntervalSinceReferenceDate {
             let interval = DateInterval(start: request.interval.end, end: response.interval.start)
             let duration = Duration(type: .server, interval: interval)
             durations.insert(duration, at: index)
