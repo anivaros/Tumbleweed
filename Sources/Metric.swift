@@ -51,6 +51,7 @@ extension URLSessionTaskMetrics.ResourceFetchType {
     }
 }
 
+@available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
 private extension Array where Element == Metric.Duration {
     func find(type: Metric.DurationType) -> Element? {
         return self.filter({ $0.type == type }).first

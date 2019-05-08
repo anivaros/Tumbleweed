@@ -30,7 +30,8 @@ public protocol Renderer {
 /// response          |                                                                               #|   0.2ms
 ///                                                                                              total   465.5ms
 @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
-@objc public class ConsoleRenderer: NSObject {
+@objcMembers
+public class ConsoleRenderer: NSObject {
     public var printer: (String) -> Void = { NSLog($0) }
     let columns = (left: 18, middle: 82, right: 8)
 
@@ -139,11 +140,11 @@ private extension TimeInterval {
 
 private extension String {
     func leftPadding(toLength: Int, withPad character: Character) -> String {
-        let newLength = self.characters.count
+        let newLength = self.count
         if newLength < toLength {
             return String(repeatElement(character, count: toLength - newLength)) + self
         } else {
-            return self.substring(from: index(self.startIndex, offsetBy: newLength - toLength))
+            return String(self[index(self.startIndex, offsetBy: newLength - toLength)...])
         }
     }
 }
